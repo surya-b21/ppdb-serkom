@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'is_admin'])->prefix('admin')->as('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
     Route::get('/dashboard/getuser', [AdminDashboardController::class, 'getuser'])->name('getuser');
+    Route::get('/peserta', [AdminDashboardController::class, 'peserta'])->name('peserta');
     Route::resource('/sekolah', SekolahController::class);
     Route::get('/getsekolah', [SekolahController::class, 'getsekolah'])->name('getsekolah');
     Route::get('/info-pendaftaran', [InfoPendaftaranController::class, 'index'])->name('info-pendaftaran');

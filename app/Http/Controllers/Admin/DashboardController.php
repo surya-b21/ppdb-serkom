@@ -16,6 +16,12 @@ class DashboardController extends Controller
         return view('admin.dashboard');
     }
 
+    // show seluruh peserta
+    public function peserta()
+    {
+        return view('admin.peserta');
+    }
+
     // get user data
     public function getuser()
     {

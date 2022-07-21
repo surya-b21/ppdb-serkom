@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Hasil;
 use App\Models\User;
+use App\Models\Sekolah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
@@ -27,7 +28,8 @@ class InfoPendaftaranController extends Controller
     //get json informasi pendaftaran
     public function getpendf()
     {
-        $query = Hasil::select(['id', 'user_id', 'sekolah_id', 'rata_rata'])->where('sekolah_id', 1)->limit(10);
+        $sekolah = Sekolah::find(1);
+        $query = Hasil::select(['id', 'user_id', 'sekolah_id', 'rata_rata'])->whereRaw("sekolah_id = " . $sekolah->id . " AND rata_rata >= 85")->limit($sekolah->limit)->get();
 
         return DataTables::of($query)
             ->addIndexColumn()

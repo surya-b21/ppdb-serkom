@@ -33,10 +33,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.sekolah.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-school"></i>
+                    <a href="{{ route('admin.peserta') }}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
-                            List Sekolah
+                            Data Seluruh Peserta
                         </p>
                     </a>
                 </li>
