@@ -18,9 +18,14 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nama',
         'email',
+        'tempat_lahir',
+        'tanggal_lahir',
+        'alamat',
         'password',
+        'foto_path',
+        'is_admin',
     ];
 
     /**
@@ -41,4 +46,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function nilai()
+    {
+        return $this->hasOne(Nilai::class);
+    }
+
+    public function hasil()
+    {
+        return $this->hasOne(Hasil::class);
+    }
 }
