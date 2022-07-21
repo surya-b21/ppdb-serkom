@@ -33,7 +33,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{ route('admin.sekolah.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-school"></i>
                         <p>
                             List Sekolah

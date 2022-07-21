@@ -33,7 +33,7 @@
             <div class="col">
                 <div class="form-group">
                     <label>Alamat</label>
-                    <textarea class="form-control" rows="5" placeholder="Masukkan alamat ..."></textarea>
+                    <textarea class="form-control" rows="5" placeholder="Masukkan alamat ..." name="alamat"></textarea>
                 </div>
             </div>
             <div class="col">

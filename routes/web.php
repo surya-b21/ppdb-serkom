@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\SekolahController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\PendaftaranController;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,8 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'is_admin'])->prefix('admin')->as('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
     Route::get('/dashboard/getuser', [AdminDashboardController::class, 'getuser'])->name('getuser');
+    Route::resource('/sekolah', SekolahController::class);
+    Route::get('/getsekolah', [SekolahController::class, 'getsekolah'])->name('getsekolah');
 });
 
 Auth::routes();
