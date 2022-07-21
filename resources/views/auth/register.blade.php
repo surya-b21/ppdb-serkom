@@ -28,8 +28,8 @@
 
                 <form action="{{ route('register') }}" method="post">
                     @csrf
-                    <x-auth-validation-errors name="nama" />
                     <label>Nama</label>
+                    <x-auth-validation-errors name="nama" />
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap">
                         <div class="input-group-append">
@@ -38,8 +38,8 @@
                             </div>
                         </div>
                     </div>
-                    <x-auth-validation-errors name="email" />
                     <label>Email</label>
+                    <x-auth-validation-errors name="email" />
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" name="email" placeholder="Email">
                         <div class="input-group-append">
@@ -48,8 +48,8 @@
                             </div>
                         </div>
                     </div>
-                    <x-auth-validation-errors name="password" />
                     <label>Password</label>
+                    <x-auth-validation-errors name="password" />
                     <div class="input-group mb-3">
                         <input type="password" class="form-control" name="password" placeholder="Password">
                         <div class="input-group-append">
@@ -58,8 +58,8 @@
                             </div>
                         </div>
                     </div>
-                    <x-auth-validation-errors name="password_confirmation" />
                     <label>Ketik Ulang Password</label>
+                    <x-auth-validation-errors name="password_confirmation" />
                     <div class="input-group mb-3">
                         <input type="password" class="form-control" name="password_confirmation" placeholder="Ketik ulang password">
                         <div class="input-group-append">

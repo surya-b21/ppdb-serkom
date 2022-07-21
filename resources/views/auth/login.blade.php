@@ -53,20 +53,13 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="remember" name="remember" id="remember"
-                                    {{ old('remember') ? 'checked' : '' }}>
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
+                        <div class="col"></div>
                         <!-- /.col -->
                         <div class="col-4">
                             <button type="submit" class="btn btn-danger btn-block">Login</button>
                         </div>
                         <!-- /.col -->
+                        <div class="col"></div>
                     </div>
                 </form>
                 <p class="mt-4 text-center">
