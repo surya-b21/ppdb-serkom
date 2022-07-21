@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
 // Route Admin
 Route::middleware(['auth', 'is_admin'])->prefix('admin')->as('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard/getuser', [AdminDashboardController::class, 'getuser'])->name('getuser');
 });
 
 Auth::routes();
