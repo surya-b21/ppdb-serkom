@@ -3,21 +3,15 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Hasil;
-use App\Models\Nilai;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Yajra\DataTables\Facades\DataTables;
+use App\Models\Hasil;
+use Illuminate\Support\Facades\Auth;
 
-class DashboardController extends Controller
+class HasilController extends Controller
 {
-    public function dashboard()
+    public function hasil()
     {
-        $nilai = Nilai::where("user_id", Auth::id())->first();
-        if (!$nilai) {
-            return view('user.dashboard2');
-        }
         $sekolah = DB::table('sekolah')->where('id', Auth::user()->nilai->sekolah_id)->first();
         $hasil = Hasil::select(['id', 'user_id', 'sekolah_id', 'rata_rata'])->where('sekolah_id', $sekolah->id)->limit($sekolah->limit)->orderByDesc('rata_rata')->get();
 
@@ -28,6 +22,6 @@ class DashboardController extends Controller
             $i++;
         }
         $status = array_search(Auth::id(), $arr);
-        return view('user.dashboard', compact(['hasil', 'status']));
+        return view('user.hasil', compact(['hasil', 'status']));
     }
 }

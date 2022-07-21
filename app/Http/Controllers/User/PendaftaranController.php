@@ -21,7 +21,8 @@ class PendaftaranController extends Controller
     public function index()
     {
         $sekolah = Sekolah::all();
-        return view('user.pendaftaran.index', compact('sekolah'));
+        $nilai = Nilai::where('user_id', Auth::id())->first();
+        return view('user.pendaftaran.index', compact(['sekolah', 'nilai']));
     }
 
     /**

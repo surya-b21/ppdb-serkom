@@ -18,6 +18,11 @@
 </head>
 
 <body class="hold-transition login-page">
+    @if (Session::has('error'))
+        <div class="alert alert-danger">
+            {{ Session::get('error') }}
+        </div>
+    @endif
     <div class="login-box">
         <!-- /.login-logo -->
         <div class="card card-outline card-danger">
@@ -50,7 +55,8 @@
                     <div class="row">
                         <div class="col-8">
                             <div class="icheck-primary">
-                                <input type="checkbox" id="remember" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                <input type="checkbox" id="remember" name="remember" id="remember"
+                                    {{ old('remember') ? 'checked' : '' }}>
                                 <label for="remember">
                                     Remember Me
                                 </label>

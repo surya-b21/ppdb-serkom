@@ -48,26 +48,6 @@
                             </div>
                         </div>
                     </div>
-                    <x-auth-validation-errors name="tempat_lahir" />
-                    <label>Tempat Lahir</label>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" name="tempat_lahir" placeholder="Tempat Lahir">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-location-arrow"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <x-auth-validation-errors name="tanggal_lahir" />
-                    <label>Tanggal Lahir</label>
-                    <div class="input-group mb-3">
-                        <input type="date" class="form-control" name="tanggal_lahir" placeholder="Tanggal Lahir">
-                    </div>
-                    <x-auth-validation-errors name="tempat_lahir" />
-                    <label>Alamat</label>
-                    <div class="input-group mb-3">
-                        <textarea class="form-control" rows="3" placeholder="Masukkan alamat ..."></textarea>
-                    </div>
                     <x-auth-validation-errors name="password" />
                     <label>Password</label>
                     <div class="input-group mb-3">
