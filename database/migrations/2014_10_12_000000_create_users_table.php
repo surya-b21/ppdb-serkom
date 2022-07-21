@@ -17,12 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('email')->unique();
-            $table->string('tempat_lahir');
-            $table->timestamp('tanggal_lahir');
-            $table->text('alamat');
+            $table->string('tempat_lahir')->nullable();
+            $table->timestamp('tanggal_lahir')->nullable();
+            $table->text('alamat')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->boolean('is_admin');
+            $table->string('foto_path')->nullable();
+            $table->boolean('is_admin')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

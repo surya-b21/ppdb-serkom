@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\User\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +19,18 @@ Route::get('/', function () {
     return view('welcome');
 })->name("welcome");
 
-Auth::routes();
+Route::get('/403', function () {
+    return view('403');
+})->name('403');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route User
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+});
+
+// Route Admin
+Route::middleware(['auth', 'is_admin'])->prefix('admin')->as('admin.')->group(function () {
+    Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
+});
+
+Auth::routes();

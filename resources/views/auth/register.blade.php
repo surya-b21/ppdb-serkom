@@ -28,9 +28,10 @@
 
                 <form action="{{ route('register') }}" method="post">
                     @csrf
-                    <x-auth-validation-errors name="name" />
+                    <x-auth-validation-errors name="nama" />
+                    <label>Nama</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" name="name" placeholder="Nama Lengkap">
+                        <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -38,6 +39,7 @@
                         </div>
                     </div>
                     <x-auth-validation-errors name="email" />
+                    <label>Email</label>
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" name="email" placeholder="Email">
                         <div class="input-group-append">
@@ -46,7 +48,28 @@
                             </div>
                         </div>
                     </div>
+                    <x-auth-validation-errors name="tempat_lahir" />
+                    <label>Tempat Lahir</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="tempat_lahir" placeholder="Tempat Lahir">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-location-arrow"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <x-auth-validation-errors name="tanggal_lahir" />
+                    <label>Tanggal Lahir</label>
+                    <div class="input-group mb-3">
+                        <input type="date" class="form-control" name="tanggal_lahir" placeholder="Tanggal Lahir">
+                    </div>
+                    <x-auth-validation-errors name="tempat_lahir" />
+                    <label>Alamat</label>
+                    <div class="input-group mb-3">
+                        <textarea class="form-control" rows="3" placeholder="Masukkan alamat ..."></textarea>
+                    </div>
                     <x-auth-validation-errors name="password" />
+                    <label>Password</label>
                     <div class="input-group mb-3">
                         <input type="password" class="form-control" name="password" placeholder="Password">
                         <div class="input-group-append">
@@ -56,6 +79,7 @@
                         </div>
                     </div>
                     <x-auth-validation-errors name="password_confirmation" />
+                    <label>Ketik Ulang Password</label>
                     <div class="input-group mb-3">
                         <input type="password" class="form-control" name="password_confirmation" placeholder="Ketik ulang password">
                         <div class="input-group-append">
