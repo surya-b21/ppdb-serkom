@@ -3,7 +3,13 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hasil;
+use App\Models\Nilai;
+use App\Models\Sekolah;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PendaftaranController extends Controller
 {
@@ -14,7 +20,8 @@ class PendaftaranController extends Controller
      */
     public function index()
     {
-        return view('user.pendaftaran.index');
+        $sekolah = Sekolah::all();
+        return view('user.pendaftaran.index', compact('sekolah'));
     }
 
     /**
@@ -35,7 +42,46 @@ class PendaftaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            "nama" => "required",
+            "tempat_lahir" => "required",
+            "tanggal_lahir" => "required",
+            "alamat" => "required",
+            "foto_path" => "required",
+            "matematika" => "required",
+            "bahasa_indonesia" => "required",
+            "bahasa_inggris" => "required",
+            "sekolah_id" => "required",
+        ]);
+
+        if ($request->file()) {
+            $fotoName = $request->nama . '.' . $request->file('foto_path')->extension();
+            $fotoPath = Storage::putFileAs('public/ppdb', $request->file('foto_path'), $fotoName);
+
+            $user = User::findOrFail(Auth::id());
+            $user->nama = $request->nama;
+            $user->tempat_lahir = $request->tempat_lahir;
+            $user->tanggal_lahir = $request->tanggal_lahir;
+            $user->alamat = $request->alamat;
+            $user->foto_path = $fotoPath;
+            $user->save();
+
+            $nilai = new Nilai;
+            $nilai->user_id = Auth::user()->id;
+            $nilai->sekolah_id = $request->sekolah_id;
+            $nilai->matematika = $request->matematika;
+            $nilai->bahasa_indonesia = $request->bahasa_indonesia;
+            $nilai->bahasa_inggris = $request->bahasa_inggris;
+            $nilai->save();
+
+            $hasil = new Hasil;
+            $hasil->user_id = Auth::id();
+            $hasil->sekolah_id = $request->sekolah_id;
+            $hasil->rata_rata = ($request->matematika + $request->bahasa_indonesia + $request->bahasa_inggris) / 3;
+            $hasil->save();
+        }
+
+        return redirect()->route('user.dashboard')->with('sukses', "Sukses Mendaftar");
     }
 
     /**

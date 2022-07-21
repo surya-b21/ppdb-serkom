@@ -64,7 +64,7 @@
                 PPDB Serkom
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2022 <a href="{{ route('dashboard') }}">PPDB</a>.</strong> All rights
+            <strong>Copyright &copy; 2022 <a href="{{ route('user.dashboard') }}">PPDB</a>.</strong> All rights
             reserved.
         </footer>
     </div>

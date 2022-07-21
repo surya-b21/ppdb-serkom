@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\InfoPendaftaranController;
 use App\Http\Controllers\Admin\SekolahController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\PendaftaranController;
@@ -27,7 +28,7 @@ Route::get('/403', function () {
 
 // Route User
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('user.dashboard');
     Route::resource('/pendaftaran', PendaftaranController::class)->only(['index', 'store', 'update']);
 });
 
@@ -37,6 +38,9 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->as('admin.')->group(fu
     Route::get('/dashboard/getuser', [AdminDashboardController::class, 'getuser'])->name('getuser');
     Route::resource('/sekolah', SekolahController::class);
     Route::get('/getsekolah', [SekolahController::class, 'getsekolah'])->name('getsekolah');
+    Route::get('/info-pendaftaran', [InfoPendaftaranController::class, 'index'])->name('info-pendaftaran');
+    Route::get('/info-pendaftaran/get', [InfoPendaftaranController::class, 'getpendf'])->name('get.pendf');
+    Route::get('/info-pendaftaran/show/{id}', [InfoPendaftaranController::class, 'show'])->name('show');
 });
 
 Auth::routes();

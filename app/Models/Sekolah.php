@@ -16,4 +16,16 @@ class Sekolah extends Model
         'alamat',
         'limit'
     ];
+
+    //relasi ke nilai
+    public function nilai()
+    {
+        return $this->hasOne(Sekolah::class);
+    }
+
+    //relasi ke hasil
+    public function hasil()
+    {
+        return $this->hasOne(Hasil::class);
+    }
 }

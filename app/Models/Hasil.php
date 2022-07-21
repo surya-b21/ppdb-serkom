@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Nilai extends Model
+class Hasil extends Model
 {
     use HasFactory;
 
-    protected $table = 'nilai';
+    protected $table = 'hasil';
 
     protected $fillable = [
+        'rata_rata',
         'user_id',
-        'matematika',
-        'bahasa_indonesia',
-        'bahasa_inggris'
+        'sekolah_id'
     ];
 
     public function user()

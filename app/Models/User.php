@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Nilai::class);
     }
+
+    public function hasil()
+    {
+        return $this->hasOne(Hasil::class);
+    }
 }

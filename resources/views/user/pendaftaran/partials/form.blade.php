@@ -40,7 +40,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Tanggal Lahir</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" name="tanggal_lahir"
+                        <input type="date" class="form-control" id="exampleInputEmail1" name="tanggal_lahir"
                             value="{{ old('tanggal_lahir') }}" placeholder="Masukkan tanggal lahir">
                     </div>
                     <x-auth-validation-errors name="tanggal_lahir" />
@@ -106,28 +106,6 @@
                 <x-auth-validation-errors name="bahasa inggris" />
             </div>
         </div>
-        <div class="row">
-            <div class="col"><label for="exampleInputEmail1">Uplaod Ijazah</label></div>
-
-            <div class="col text-right">
-                <p>Maximum file size : 5mb</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                    </div>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputGroupFile01" name="ijazah_path"
-                            aria-describedby="inputGroupFileAddon01">
-                        <label class="custom-file-label" for="inputGroupFile01">Pilih file</label>
-                    </div>
-                </div>
-                <x-auth-validation-errors name="ijazah_path" />
-            </div>
-        </div>
     </div>
 </div>
 
@@ -145,12 +123,10 @@
     <div class="card-body">
         <div class="form-group">
             <label>Pilih Sekolah Tujuan</label>
-            <select class="form-control">
-                <option>option 1</option>
-                <option>option 2</option>
-                <option>option 3</option>
-                <option>option 4</option>
-                <option>option 5</option>
+            <select class="form-control" name="sekolah_id">
+                @foreach ($sekolah as $data)
+                <option value="{{ $data->id }}">{{$data->nama}}</option>
+                @endforeach
             </select>
         </div>
     </div>
