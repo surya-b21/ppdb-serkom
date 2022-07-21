@@ -18,33 +18,12 @@
             </div>
         </div>
 
-        <!-- SidebarSearch Form -->
-        <div class="form-inline">
-            <div class="input-group" data-widget="sidebar-search">
-                <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                    aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-sidebar">
-                        <i class="fas fa-search fa-fw"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-clipboard-list"></i>
-                        <p>
-                            Persyaratan
-                            {{-- <i class="right fas fa-angle-left"></i> --}}
-                        </p>
-                    </a>
                     {{-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -61,42 +40,10 @@
                     </ul> --}}
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{ route('pendaftaran.index') }}" class="nav-link">
                         <i class="nav-icon fab fa-wpforms"></i>
                         <p>
                             Pendaftaran
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">
-                        <i class="nav-icon fas fa-calendar-alt"></i>
-                        <p>
-                            Jadwal
-                        </p>
-                    </a>
-                </li>
-                {{-- <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-check-square"></i>
-                        <p>
-                            Konfirmasi Jadwal
-                        </p>
-                    </a>
-                </li> --}}
-                <li class="nav-item">
-                    <a href="" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Status Approval
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">
-                        <i class="nav-icon fas fa-info"></i>
-                        <p>
-                            Help
                         </p>
                     </a>
                 </li>

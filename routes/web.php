@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\User\DashboardController;
+use App\Http\Controllers\User\PendaftaranController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,7 @@ Route::get('/403', function () {
 // Route User
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+    Route::resource('/pendaftaran', PendaftaranController::class)->only(['index', 'store', 'update']);
 });
 
 // Route Admin
